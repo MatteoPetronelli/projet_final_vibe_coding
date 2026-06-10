@@ -4,7 +4,6 @@
 </script>
 
 <div class="min-h-screen flex flex-col bg-gray-50">
-	<!-- Navbar -->
 	<header class="bg-primary text-white sticky top-0 z-50 shadow-md">
 		<div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
 			<a href="/" class="text-2xl font-poppins font-bold text-gold mb-4 md:mb-0">JO Paris 2024</a>
@@ -19,12 +18,10 @@
 		</div>
 	</header>
 
-	<!-- Main Content Slot -->
 	<main class="flex-grow">
 		{@render children()}
 	</main>
 
-	<!-- Footer -->
 	<footer class="bg-primary text-white py-8 mt-12">
 		<div class="container mx-auto px-4 text-center">
 			<p class="font-montserrat font-bold mb-4">Projet Vibe Coding - JO Paris 2024</p>

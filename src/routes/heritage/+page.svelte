@@ -6,21 +6,20 @@
 	import BeforeAfter from '$lib/components/BeforeAfter.svelte';
 
 	onMount(() => {
-		// Enregistrer le plugin ScrollTrigger
+
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Sélectionner tous les écrans narratifs
 		const screens = gsap.utils.toArray('.story-screen');
 
 		screens.forEach((screen) => {
 			const content = screen.querySelector('.story-content');
 			
-			// Animation d'apparition au défilement
+
 			gsap.from(content, {
 				scrollTrigger: {
 					trigger: screen,
-					start: 'top 75%', // Se déclenche quand le haut de la section atteint 75% de la hauteur de l'écran
-					toggleActions: 'play none none reverse' // Rejoue l'animation dans les deux sens
+					start: 'top 75%',
+					toggleActions: 'play none none reverse'
 				},
 				opacity: 0,
 				y: 50,
@@ -29,7 +28,6 @@
 			});
 		});
 
-		// Nettoyage au démontage du composant
 		return () => {
 			ScrollTrigger.getAll().forEach(t => t.kill());
 		};
@@ -40,12 +38,9 @@
 	<title>Héritage & Impact Local - JO Paris 2024</title>
 </svelte:head>
 
-<!-- Conteneur principal sombre pour l'immersion narrative -->
 <div class="bg-gray-950 min-h-screen text-gray-200 font-sans selection:bg-gold selection:text-primary overflow-x-hidden">
 	
-	<!-- Écran 1 : Introduction et Promesses -->
 	<section class="story-screen min-h-screen flex items-center justify-center p-6 md:p-12 border-b border-gray-800 relative">
-		<!-- Élément décoratif de fond -->
 		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-primary/10 to-transparent pointer-events-none"></div>
 
 		<div class="story-content max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
@@ -80,7 +75,6 @@
 		</div>
 	</section>
 
-	<!-- Écran 2 : Logement (Contraste et Scepticisme) -->
 	<section class="story-screen min-h-screen flex items-center justify-center p-6 md:p-12 border-b border-gray-800 bg-gray-900/50">
 		<div class="story-content max-w-5xl mx-auto w-full">
 			<div class="mb-12 text-center max-w-3xl mx-auto">
@@ -92,14 +86,11 @@
 				</p>
 			</div>
 
-			<!-- Composant interactif Avant/Après -->
 			<div class="mb-16">
 				<BeforeAfter />
 			</div>
 
-			<!-- Citation contestataire -->
 			<div class="border-l-4 border-secondary bg-gray-950 p-8 md:p-10 rounded-r-2xl shadow-2xl max-w-4xl mx-auto relative overflow-hidden group">
-				<!-- Décoration citation arrière-plan -->
 				<div class="text-secondary opacity-5 absolute -top-10 -left-6 text-[150px] font-serif leading-none transition-transform group-hover:scale-110 duration-500">"</div>
 				
 				<p class="text-2xl md:text-3xl text-gray-300 italic font-medium relative z-10 pl-4 md:pl-8 leading-relaxed">
@@ -112,13 +103,10 @@
 		</div>
 	</section>
 
-	<!-- Écran 3 : L'Économie et l'Emploi -->
 	<section class="story-screen min-h-screen flex items-center justify-center p-6 md:p-12 border-b border-gray-800 relative">
 		<div class="story-content max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full relative z-10">
 			
-			<!-- Colonne des "Faits" opposés -->
 			<div class="order-2 lg:order-1 flex flex-col gap-6">
-				<!-- Fait Positif -->
 				<div class="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl flex items-start gap-4 hover:bg-gray-800/80 transition-colors">
 					<TrendingUp class="text-accent flex-shrink-0 mt-1" size={32} />
 					<div>
@@ -126,7 +114,6 @@
 						<p class="text-gray-400 leading-relaxed">Tesla, la DGSI, le prolongement de la ligne 14 du métro... Les infrastructures se modernisent à vitesse grand V pour accueillir le monde.</p>
 					</div>
 				</div>
-				<!-- Fait Négatif -->
 				<div class="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl flex items-start gap-4 hover:bg-gray-800/80 transition-colors">
 					<AlertTriangle class="text-secondary flex-shrink-0 mt-1" size={32} />
 					<div>
@@ -136,7 +123,6 @@
 				</div>
 			</div>
 			
-			<!-- Texte narratif -->
 			<div class="order-1 lg:order-2">
 				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
 					L'Économie : <br/>La crainte de la <span class="text-accent">"Bulle"</span>
@@ -152,9 +138,7 @@
 		</div>
 	</section>
 
-	<!-- Écran 4 : Cohésion Sociale et Conclusion -->
 	<section class="story-screen min-h-screen flex items-center justify-center p-6 md:p-12 bg-gradient-to-b from-gray-950 to-[#001530] relative overflow-hidden">
-		<!-- Effet de lueur en fond -->
 		<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
 
 		<div class="story-content max-w-4xl mx-auto text-center relative z-10">

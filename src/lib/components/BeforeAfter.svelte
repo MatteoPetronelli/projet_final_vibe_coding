@@ -11,7 +11,6 @@
 	role="img"
 	aria-label="Comparaison Avant/Après : Friche industrielle vs Logements"
 >
-	<!-- Avant (État de base) -->
 	<div 
 		class="absolute inset-0 bg-gray-900 flex flex-col items-center justify-center p-8 transition-opacity duration-700 ease-in-out"
 		style="opacity: {isHovered ? 0 : 1};"
@@ -21,7 +20,6 @@
 		<p class="text-gray-400 font-sans text-center max-w-sm">Anciens sites industriels, zones en friche et terrains délaissés de Seine-Saint-Denis.</p>
 	</div>
 
-	<!-- Après (État qui se révèle) -->
 	<div 
 		class="absolute inset-0 bg-[#002654] flex flex-col items-center justify-center p-8 transition-opacity duration-700 ease-in-out"
 		style="opacity: {isHovered ? 1 : 0};"
@@ -31,7 +29,6 @@
 		<p class="text-blue-200 font-sans text-center max-w-sm">Nouveaux éco-quartiers, 6 000 logements modernes (mais seulement 25% de social).</p>
 	</div>
 
-	<!-- Indication visuelle -->
 	{#if !isHovered}
 		<div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse z-20 border border-white/20">
 			Survolez pour voir l'évolution

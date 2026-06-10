@@ -9,7 +9,6 @@
 	/** @type {echarts.ECharts} */
 	let chartInstance;
 
-	// Effet réactif : met à jour le graphique automatiquement quand `data` change
 	$effect(() => {
 		const currentData = data;
 		if (chartInstance && currentData) {
@@ -67,7 +66,7 @@
 						medal: d.medal,
 						desc: d.desc,
 						itemStyle: {
-							// Utilisation de la charte selon la compétition
+
 							color: d.type === 'Jeux Olympiques' ? '#FFD700' : (d.type === 'Grand Slam' ? '#002654' : '#ED2939'),
 							borderRadius: [6, 6, 0, 0]
 						}
@@ -92,14 +91,12 @@
 		chartInstance = echarts.init(chartContainer);
 		updateChart(data);
 
-		// Ajouter l'événement de clic pour la réactivité
 		chartInstance.on('click', (/** @type {any} */ params) => {
 			if (onBarClick && params.data) {
 				onBarClick(params.data);
 			}
 		});
 
-		// Gestion du redimensionnement
 		const resizeObserver = new ResizeObserver(() => {
 			chartInstance.resize();
 		});

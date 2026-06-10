@@ -28,7 +28,6 @@
 		}
 	];
 
-	// État réactif (Svelte 5 Runes) initialisé avec la première instance pour inférer le bon type
 	let activeInstance = $state(instances[0]);
 </script>
 
@@ -38,7 +37,6 @@
 
 <div class="container mx-auto px-4 py-12 max-w-7xl">
 	
-	<!-- En-tête -->
 	<header class="mb-12 border-b-2 border-gray-100 pb-6">
 		<h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Rapport d'Écosystème</h1>
 		<p class="text-lg text-gray-600 font-sans max-w-3xl">
@@ -46,20 +44,16 @@
 		</p>
 	</header>
 
-	<!-- Grille principale -->
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-		<!-- 1. Instances et gouvernance -->
 		<section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col h-full">
 			<h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
 				<Landmark class="text-gold" /> Gouvernance et Acteurs
 			</h2>
 			
 			<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-				<!-- Organigramme interactif -->
 				<div class="flex flex-col gap-2 relative">
 					{#each instances as inst, index}
-						<!-- Ligne vers le bas pour l'organigramme -->
 						{#if index > 0}
 							<div class="flex justify-center my-1 text-gray-300">
 								<ArrowDown size={20} />
@@ -86,12 +80,10 @@
 					{/each}
 				</div>
 
-				<!-- Panneau de détails (State) -->
 				<div class="bg-gray-50 rounded-xl p-6 border border-gray-100 h-full flex flex-col justify-center transition-all">
 					{#if activeInstance}
 						<div class="animate-in fade-in slide-in-from-right-4 duration-300">
 							<div class="{activeInstance.color} mb-4">
-								<!-- Utiliser le composant directement -->
 								<Info size={40} />
 							</div>
 							<h3 class="text-xl font-bold text-primary mb-2">{activeInstance.name}</h3>
@@ -110,7 +102,6 @@
 			</div>
 		</section>
 
-		<!-- 2. Budget et financement (Echarts) -->
 		<section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col h-full">
 			<h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
 				<Landmark class="text-secondary" /> Budget et Financement
@@ -128,14 +119,12 @@
 						<p class="text-sm text-gray-600 mt-1">50% Public / 50% Privé</p>
 					</div>
 				</div>
-				<!-- Composant Graphique -->
 				<div class="flex-grow bg-white border border-gray-100 rounded-xl p-2 min-h-[300px]">
 					<BudgetChart />
 				</div>
 			</div>
 		</section>
 
-		<!-- 3. Sites olympiques et héritage territorial -->
 		<section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col h-full lg:col-span-2 xl:col-span-1">
 			<h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
 				<Map class="text-gold" /> Sites et Territoire
@@ -166,7 +155,6 @@
 			</div>
 		</section>
 
-		<!-- 4. Héritage durable -->
 		<section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col h-full lg:col-span-2 xl:col-span-1">
 			<h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
 				<Leaf class="text-accent" /> Héritage Durable

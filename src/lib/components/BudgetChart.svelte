@@ -8,7 +8,7 @@
 	let chartInstance;
 
 	onMount(() => {
-		// Initialiser l'instance Echarts
+
 		chartInstance = echarts.init(chartContainer);
 
 		const option = {
@@ -41,8 +41,8 @@
 						show: false
 					},
 					data: [
-						{ value: 3.8, name: 'COJO', itemStyle: { color: '#002654' } }, // Bleu Paris 2024
-						{ value: 3.0, name: 'SOLIDEO', itemStyle: { color: '#00A651' } } // Vert Paris 2024
+						{ value: 3.8, name: 'COJO', itemStyle: { color: '#002654' } },
+						{ value: 3.0, name: 'SOLIDEO', itemStyle: { color: '#00A651' } }
 					]
 				},
 				{
@@ -64,9 +64,9 @@
 					},
 					data: [
 						{ value: 3.686, name: 'Privé (COJO)', itemStyle: { color: '#336699' } },
-						{ value: 0.114, name: 'Public (COJO)', itemStyle: { color: '#ED2939' } }, // Rouge
+						{ value: 0.114, name: 'Public (COJO)', itemStyle: { color: '#ED2939' } },
 						{ value: 1.5, name: 'Privé (SOLIDEO)', itemStyle: { color: '#33cc77' } },
-						{ value: 1.5, name: 'Public (SOLIDEO)', itemStyle: { color: '#ED2939' } } // Rouge
+						{ value: 1.5, name: 'Public (SOLIDEO)', itemStyle: { color: '#ED2939' } }
 					]
 				}
 			]
@@ -74,7 +74,6 @@
 
 		chartInstance.setOption(option);
 
-		// Gestion du redimensionnement
 		const resizeObserver = new ResizeObserver(() => {
 			chartInstance.resize();
 		});

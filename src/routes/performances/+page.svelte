@@ -4,7 +4,6 @@
 	import { Trophy, Medal, Activity } from 'lucide-svelte';
 	import AthleteChart from '$lib/components/AthleteChart.svelte';
 
-	// Données de Teddy Riner (Saison 2024)
 	const competitions = [
 		{ name: 'Paris 2024 (JO)', type: 'Jeux Olympiques', medal: 'Or', points: 1100, desc: 'La consécration ultime à domicile. Une victoire historique qui marque sa domination absolue sur la catégorie reine des +100 kg devant son public.' },
 		{ name: 'Paris Grand Slam', type: 'Grand Slam', medal: 'Or', points: 500, desc: 'Une victoire prestigieuse à l\'Accor Arena, lançant parfaitement son année olympique avec une démonstration de force et de technique.' },
@@ -14,23 +13,20 @@
 		{ name: 'Madrid Open', type: 'Open', medal: 'Or', points: 50, desc: 'Ultime répétition victorieuse sur le sol européen avant la grande échéance olympique, montrant une condition physique optimale.' }
 	];
 
-	// États réactifs (Runes Svelte 5)
 	let filter = $state('Toutes');
 	/** @type {any} */
 	let selectedComp = $state(null);
 
-	// Filtrage réactif des données
 	let filteredData = $derived(
 		filter === 'Toutes' ? competitions : competitions.filter(c => c.type === filter)
 	);
 
-	// Fonction callback passée au composant Echarts
 	function handleBarClick(/** @type {any} */ comp) {
 		selectedComp = comp;
 	}
 
 	onMount(() => {
-		// Animation GSAP des KPI à l'apparition de la page
+
 		gsap.from('.kpi-card', {
 			opacity: 0,
 			y: 30,
@@ -47,7 +43,6 @@
 
 <div class="container mx-auto px-4 py-12 max-w-7xl">
 	
-	<!-- En-tête -->
 	<header class="mb-10 border-b-2 border-gray-100 pb-6 flex flex-col md:flex-row md:justify-between md:items-end">
 		<div>
 			<h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 tracking-tight">Dashboard Athlète</h1>
@@ -56,7 +51,6 @@
 			</p>
 		</div>
 		<div class="mt-4 md:mt-0 flex gap-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
-			<!-- Légende couleurs -->
 			<div class="flex items-center gap-2 text-sm font-bold text-gray-700">
 				<span class="w-3 h-3 rounded-full bg-gold inline-block"></span> JO
 			</div>
@@ -69,9 +63,7 @@
 		</div>
 	</header>
 
-	<!-- KPI Cards -->
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-		<!-- KPI 1 -->
 		<div class="kpi-card bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex items-center gap-4 border-l-4 border-l-primary hover:shadow-md transition-shadow">
 			<div class="bg-blue-50 p-3 rounded-xl text-primary">
 				<Activity size={32} />
@@ -82,7 +74,6 @@
 			</div>
 		</div>
 
-		<!-- KPI 2 -->
 		<div class="kpi-card bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex items-center gap-4 border-l-4 border-l-gold hover:shadow-md transition-shadow">
 			<div class="bg-yellow-50 p-3 rounded-xl text-gold">
 				<Trophy size={32} />
@@ -93,7 +84,6 @@
 			</div>
 		</div>
 
-		<!-- KPI 3 -->
 		<div class="kpi-card bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex items-center gap-4 border-l-4 border-l-secondary hover:shadow-md transition-shadow">
 			<div class="bg-red-50 p-3 rounded-xl text-secondary">
 				<Medal size={32} />
@@ -105,12 +95,10 @@
 		</div>
 	</div>
 
-	<!-- Section Graphique et Filtres -->
 	<section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-8">
 		<div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
 			<h2 class="text-2xl font-bold text-primary">Évolution des Points WRL</h2>
 			
-			<!-- Système de filtrage -->
 			<div class="flex flex-wrap gap-2 bg-gray-50 p-1.5 rounded-xl border border-gray-200">
 				{#each ['Toutes', 'Jeux Olympiques', 'Grand Slam', 'Open'] as f}
 					<button 
@@ -123,13 +111,11 @@
 			</div>
 		</div>
 
-		<!-- Conteneur du graphique Echarts -->
 		<div class="w-full">
 			<AthleteChart data={filteredData} onBarClick={handleBarClick} />
 		</div>
 	</section>
 
-	<!-- Panneau de détails interactif (Modale inline) -->
 	<div class="min-h-[150px]">
 		{#if selectedComp}
 			<div class="animate-in slide-in-from-bottom-4 fade-in duration-300 bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-primary shadow-md flex flex-col md:flex-row gap-6 items-center transition-all">
