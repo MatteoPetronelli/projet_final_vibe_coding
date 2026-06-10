@@ -1,9 +1,7 @@
 <script>
-	import { inject } from '@vercel/analytics';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import './layout.css';
 
-	inject();
 	injectSpeedInsights();
 
 	let { children } = $props();
