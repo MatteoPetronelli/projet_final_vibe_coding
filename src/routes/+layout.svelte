@@ -29,9 +29,9 @@
 		<div class="container mx-auto px-4 text-center">
 			<p class="font-montserrat font-bold mb-4">Projet Vibe Coding - JO Paris 2024</p>
 			<div class="flex justify-center flex-wrap gap-6 text-sm text-gray-300 mt-6 md:mt-0">
-				<a href="https://www.paris2024.org/fr/" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">Site Officiel 2024</a>
-				<a href="https://olympics.com/fr/cio/" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">CIO</a>
-				<a href="https://www.paris2024.org/fr/comite-organisation/" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">COJO</a>
+				<a href="https://www.olympics.com/fr/olympic-games/paris-2024" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">Site Officiel 2024</a>
+				<a href="https://www.olympics.com/cio/paris-2024" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">CIO</a>
+				<a href="https://www.olympics.com/cio/comites-d-organisation-des-jeux-olympiques" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">COJO</a>
 				<a href="https://www.ouvrages-olympiques.fr/" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">SOLIDEO</a>
 			</div>
 		</div>
