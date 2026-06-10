@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #002654;
+  --color-secondary: #ED2939;
+  --color-accent: #00A651;
+  --color-gold: #FFD700;
+  
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-sans: "Open Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-gray-800 bg-gray-50;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat text-primary;
+  }
+}
